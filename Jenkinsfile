@@ -1,7 +1,10 @@
 pipeline{
-    agent any
+   agent any
+   parameters {
+      choice(choices: ['DV1', 'DV2', 'QA1', 'QA2', 'UAT'], description: 'Test Environment', name: 'ENVIRONMENT')
+    }
     stages{
-
+/*
         stage("Gather Parameters"){
             steps{
                script{
@@ -9,6 +12,7 @@ pipeline{
                }
             }
          }
+      */
 
          stage("Git"){
                steps{
@@ -18,7 +22,7 @@ pipeline{
 
          stage("DV1"){
             when {
-               equals expected: "DV1", actual: "${env.TEST_ENVIRONMENT}"
+               equals expected: "DV1", actual: params.ENVIRONMENT
 
             }
                steps{
@@ -28,7 +32,7 @@ pipeline{
 
          stage("DV2"){
             when {
-               equals expected: "DV2", actual: "${env.TEST_ENVIRONMENT}"
+               equals expected: "DV2", actual:params.ENVIRONMENT
 
             }
                steps{
@@ -38,7 +42,7 @@ pipeline{
 
          stage("QA1"){
             when {
-               equals expected: "QA1", actual: "${env.TEST_ENVIRONMENT}"
+               equals expected: "QA1", actual:params.ENVIRONMENT
 
             }
                steps{
@@ -48,7 +52,7 @@ pipeline{
 
          stage("QA2"){
             when {
-               equals expected: "QA2", actual: "${env.TEST_ENVIRONMENT}"
+               equals expected: "QA2", actual: params.ENVIRONMENT
 
             }
                steps{
@@ -58,7 +62,7 @@ pipeline{
 
          stage("UAT"){
             when {
-               equals expected: "UAT", actual: "${env.TEST_ENVIRONMENT}"
+               equals expected: "UAT", actual: params.ENVIRONMENT
 
             }
                steps{

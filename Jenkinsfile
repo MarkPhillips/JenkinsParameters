@@ -3,6 +3,7 @@ pipeline{
         label "any"
     }
     stages{
+
         stage("Gather Parameters"){
             steps{
                script{
@@ -14,9 +15,14 @@ pipeline{
                     echo "${env.TEST_ENVIRONMENT}"
                 }
             }
+            stage("Git"){
+                steps{
+                    git changelog: false, poll: false, url: 'https://github.com/MarkPhillips/JenkinsParameters'
+                }
+            }
             stage("DV1"){
                when {
-                  equals expected: "DV1" actual: "${env.TEST_ENVIRONMENT}"
+                  equals expected: "DV1", actual: "${env.TEST_ENVIRONMENT}"
 
                }
                 steps{
@@ -25,7 +31,7 @@ pipeline{
             }
             stage("DV2"){
                when {
-                  equals expected: "DV2" actual: "${env.TEST_ENVIRONMENT}"
+                  equals expected: "DV2", actual: "${env.TEST_ENVIRONMENT}"
 
                }
                 steps{
@@ -34,7 +40,7 @@ pipeline{
             }
             stage("QA1"){
                when {
-                  equals expected: "QA1" actual: "${env.TEST_ENVIRONMENT}"
+                  equals expected: "QA1", actual: "${env.TEST_ENVIRONMENT}"
 
                }
                 steps{
@@ -43,7 +49,7 @@ pipeline{
             }
            stage("QA2"){
                when {
-                  equals expected: "QA2" actual: "${env.TEST_ENVIRONMENT}"
+                  equals expected: "QA2", actual: "${env.TEST_ENVIRONMENT}"
 
                }
                 steps{
@@ -52,7 +58,7 @@ pipeline{
             }
            stage("UAT"){
                when {
-                  equals expected: "UAT" actual: "${env.TEST_ENVIRONMENT}"
+                  equals expected: "UAT", actual: "${env.TEST_ENVIRONMENT}"
 
                }
                 steps{

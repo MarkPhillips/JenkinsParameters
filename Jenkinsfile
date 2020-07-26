@@ -19,12 +19,12 @@ pipeline{
 
                   script{
                      if( params.ENVIRONMENT == "DV1" || params.ENVIRONMENT == "QA1"){
-                        environment.PATH = "PATH1"
+                       $PATH = "PATH1"
                      }else if(params.ENVIRONMENT == "DV2" || params.ENVIRONMENT == "QA2"){
-                        environment.PATH = "PATH2"
+                        $PATH = "PATH2"
                      }
                      else{
-                        environment.PATH = "UAT"
+                        $PATH = "UAT"
                      }
                   }
                }

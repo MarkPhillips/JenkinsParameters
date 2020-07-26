@@ -18,7 +18,6 @@ pipeline{
             }
                steps{
                   echo "You have requested DV1"
-                  echo "$PATH"
                }
          }
 
@@ -28,7 +27,6 @@ pipeline{
             }
                steps{
                   echo "You have requested DV2"
-                  echo "$PATH"
                }
          }
 
@@ -38,7 +36,6 @@ pipeline{
             }
                steps{
                   echo "You have requested QA1"
-                  echo "$PATH"
                }
          }
 
@@ -48,7 +45,6 @@ pipeline{
             }
                steps{
                   echo "You have requested QA2"
-                  echo "$PATH"
                }
          }
 
@@ -58,7 +54,6 @@ pipeline{
             }
                steps{
                   echo "You have requested UAT"
-                  echo environment.PATH
                }
          }
     }

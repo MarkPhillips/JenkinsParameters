@@ -3,36 +3,11 @@ pipeline{
    parameters {
       choice(choices: ['DV1', 'DV2', 'QA1', 'QA2', 'UAT'], description: '', name: 'ENVIRONMENT')
     }
-    environment{
-       PATH = "PATH_0"
-    }
     stages{
 
          stage("Git"){
                steps{
                   git changelog: false, poll: false, url: 'https://github.com/MarkPhillips/JenkinsParameters'
-               }
-         }
-
-         stage("Set Path"){
-               steps{
-
-                  script{
-                     if( params.ENVIRONMENT == "DV1" || params.ENVIRONMENT == "QA1"){
-                       $PATH = "PATH_1"
-                       echo "params.ENVIRONMENT =  params.ENVIRONMENT"
-                     }else if(params.ENVIRONMENT == "DV2" || params.ENVIRONMENT == "QA2"){
-                        $PATH = "PATH_2"
-                        echo "params.ENVIRONMENT =  params.ENVIRONMENT"
-                     }
-                     else{
-                        $PATH = "UAT"
-                        echo "params.ENVIRONMENT =  params.ENVIRONMENT"
-                     }
-
-                     echo "PATH is $PATH"
-                  }
-
                }
          }
 

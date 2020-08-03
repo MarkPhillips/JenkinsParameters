@@ -16,7 +16,7 @@ pipeline{
                equals expected: "DV1", actual: params.ENVIRONMENT
             }
             steps{
-               powershell "PS\\automatedTests.ps1  -testCategory how, -environmentURL now"
+               powershell "PS\\automatedTests.ps1 -testCategory how  -environmentUrl now"
             }
          }
     }

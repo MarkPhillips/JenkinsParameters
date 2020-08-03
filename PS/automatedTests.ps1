@@ -1,9 +1,6 @@
-param($appName, $serverEnv, $testCategory, $envUrl)
+param($appName, $serverEnv, $testCategory)
 Write-Host $appName
 Write-Host $serverEnv
 Write-Host $testCategory
-Write-Host $envUrl
 
 $appEnv = $appName + '_' + $serverEnv
-
-Write-Host $appEnv

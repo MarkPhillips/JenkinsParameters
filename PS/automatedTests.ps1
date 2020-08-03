@@ -4,6 +4,6 @@ Write-Host $serverEnv
 Write-Host $testCategory
 Write-Host $envUrl
 
-$appEnv = $appName + '_' + $serverName
+$appEnv = $appName + '_' + $serverEnv
 
 Write-Host $appEnv

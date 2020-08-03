@@ -11,7 +11,7 @@ pipeline{
             }
          }
 
-         stage("DV1"){
+         stage("Powershell"){
             when {
                equals expected: "DV1", actual: params.ENVIRONMENT
             }
